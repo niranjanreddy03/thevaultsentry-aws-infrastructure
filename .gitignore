@@ -1,0 +1,23 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+build/
+
+# AWS local config or packaged deployment output
+.aws-sam/
+*.zip

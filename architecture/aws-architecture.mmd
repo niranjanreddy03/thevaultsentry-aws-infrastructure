@@ -1,0 +1,14 @@
+flowchart LR
+    user[User Browser] -->|HTTPS / SSL| cf[CloudFront CDN]
+    cf -->|HTTPS| amplify[AWS Amplify Frontend]
+    amplify -->|HTTPS API Requests| eb[Elastic Beanstalk Backend]
+    eb --> ec2[EC2 Application Instances]
+
+    iam[IAM Access Control] -.-> amplify
+    iam -.-> eb
+    iam -.-> ec2
+    iam -.-> cw[CloudWatch Monitoring]
+
+    amplify -->|Deployment logs and metrics| cw
+    eb -->|Application logs and health| cw
+    ec2 -->|Instance metrics and logs| cw
