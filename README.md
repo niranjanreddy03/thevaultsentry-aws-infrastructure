@@ -47,24 +47,15 @@ CloudFront provides a public CDN entry point and serves traffic over HTTPS. AWS 
 - IAM access should follow least privilege for deployment users, service roles, and instance profiles.
 - HTTPS should be enforced through CloudFront using an AWS Certificate Manager certificate.
 - Backend endpoints should avoid exposing administrative routes or sensitive diagnostics publicly.
-- CloudWatch log groups should be reviewed regularly and configured with appropriate retention periods.
+- CloudWatch log groups should use appropriate retention periods for application and instance logs.
 - Secrets should not be committed to the repository or stored in plaintext deployment files.
 - Elastic Beanstalk environment variables should be limited to required runtime configuration.
 - CloudFront cache behavior should avoid caching sensitive API responses.
 
 ## Repository Structure
 
-```text
-thevaultsentry-aws-infrastructure/
-+-- architecture/
-|   +-- aws-architecture.mmd
-+-- docs/
-|   +-- deployment-notes.md
-+-- screenshots/
-+-- .gitignore
-+-- README.md
-```
-
-## Security Review Summary
-
-This setup is suitable for a portfolio-level AWS deployment, but the main risks are overly broad IAM permissions, insufficient log retention, weak separation between frontend and backend access, and incomplete alerting. The project should be reviewed for public backend exposure, CloudFront security headers, SSL enforcement, CloudWatch alarms, and deployment credentials with excessive permissions.
+- `architecture/` - AWS architecture diagram in Mermaid format.
+- `docs/` - Deployment notes and operational documentation.
+- `screenshots/` - Project screenshots and deployment evidence.
+- `README.md` - Main project overview.
+- `.gitignore` - Local files and generated artifacts excluded from version control.
